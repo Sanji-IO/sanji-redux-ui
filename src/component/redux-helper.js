@@ -10,7 +10,11 @@ class ReduxHelperProvider {
     this.configure = (cfg, enhancer) => {
       this.config = Object.assign({}, this.config, cfg);
       const rootReducer = combineReducers(this.config);
-      this.$ngReduxProvider.createStoreWith(rootReducer, [thunk], [enhancer]);
+      if (enhancer) {
+        this.$ngReduxProvider.createStoreWith(rootReducer, [thunk], [enhancer]);
+      } else {
+        this.$ngReduxProvider.createStoreWith(rootReducer, [thunk]);
+      }
     };
   }
 
