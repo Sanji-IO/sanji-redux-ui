@@ -6,11 +6,16 @@ class ReduxHelperProvider {
   constructor(...injects) {
     ReduxHelperProvider.$inject.forEach((item, index) => this[item] = injects[index]);
     this.config = {};
+    const enhancer = [];
+
+    if(process.env.NODE_ENV === 'development' && window.devToolsExtension) {
+      enhancer.push(window.devToolsExtension());
+    }
 
     this.configure = cfg => {
       this.config = Object.assign({}, this.config, cfg);
       const rootReducer = combineReducers(this.config);
-      this.$ngReduxProvider.createStoreWith(rootReducer, [thunk]);
+      this.$ngReduxProvider.createStoreWith(rootReducer, [thunk], enhancer);
     };
   }
 

@@ -26,6 +26,7 @@ const config = {
     new ProgressBarPlugin(),
     new LodashModuleReplacementPlugin,
     new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(NODE_ENV || 'development'),
       __TEST__: 'test' === NODE_ENV,
       __DEV__: 'development' === NODE_ENV,
       __RELEASE__: 'production' === NODE_ENV
