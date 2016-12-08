@@ -76,6 +76,14 @@ angular.module('webapp', ['sanji.redux'])
 });
 ```
 
+## Integrate Chrome Redux Devtool Extention
+[Redux DevTools extension](https://github.com/zalmoxisus/redux-devtools-extension)
+```javascript
+reduxHelperProvider.configure({
+    category
+}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+```
+
 ## Contact
 
 Author: Zack Yang &copy; 2016
