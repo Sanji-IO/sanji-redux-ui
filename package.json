@@ -22,7 +22,7 @@
     "check-coverage": "istanbul check-coverage --statements 50 --branches 20 --functions 50 --lines 50",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
     "start": "cross-env NODE_ENV=development node server/dev-server.js",
-    "publish-latest": "publish-latest",
+    "postpublish": "publish-latest",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "devDependencies": {
