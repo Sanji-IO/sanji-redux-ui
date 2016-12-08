@@ -2,7 +2,7 @@
   "name": "sanji-redux-ui",
   "author": "Zack Yang <zack9433@gmail.com> (https://github.com/zack9433)",
   "description": "sanji-redux-ui",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "dist/sanji-redux-ui.js",
   "config": {
     "commitizen": {
@@ -19,7 +19,7 @@
     "prebuild": "rimraf dist && mkdir dist",
     "build": "cross-env NODE_ENV=production webpack --config webpack.build.js --display-modules",
     "commit": "git-cz",
-    "check-coverage": "istanbul check-coverage --statements 50 --branches 20 --functions 50 --lines 50",
+    "check-coverage": "istanbul check-coverage --statements 75 --branches 50 --functions 75 --lines 75",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
     "start": "cross-env NODE_ENV=development node server/dev-server.js",
     "postpublish": "publish-latest",
