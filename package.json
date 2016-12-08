@@ -1,0 +1,53 @@
+{
+  "name": "sanji-redux-ui",
+  "author": "Zack Yang <zack9433@gmail.com> (https://github.com/zack9433)",
+  "description": "sanji-redux-ui",
+  "version": "0.0.0-semantic-released",
+  "main": "dist/sanji-redux-ui.js",
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    },
+    "ghooks": {
+      "pre-commit": "opt --in pre-commit --exec 'npm run validate'"
+    }
+  },
+  "scripts": {
+    "validate": "npm run test:once && npm run check-coverage",
+    "test": "cross-env NODE_ENV=test BABEL_ENV=test karma start",
+    "test:once": "cross-env BABEL_ENV=test karma start",
+    "prebuild": "rimraf dist && mkdir dist",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.build.js --display-modules",
+    "commit": "git-cz",
+    "check-coverage": "istanbul check-coverage --statements 50 --branches 20 --functions 50 --lines 50",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
+    "start": "cross-env NODE_ENV=development node server/dev-server.js",
+    "publish-latest": "publish-latest",
+    "semantic-release": "semantic-release pre && npm publish && npm run publish-latest && semantic-release post"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.5.0",
+    "codecov.io": "^0.1.6",
+    "publish-latest": "~1.1.2",
+    "sanji-common-devs-ui": "~1.0.4",
+    "semantic-release": "^6.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sanji-IO/sanji-redux-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sanji-IO/sanji-redux-ui/issues"
+  },
+  "keywords": [
+    "sanji",
+    "redux"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Sanji-IO/sanji-redux-ui",
+  "dependencies": {
+    "angular": "~1.5.0",
+    "ng-redux": "~3.4.0-beta.1",
+    "redux-thunk": "~2.1.0"
+  }
+}
