@@ -2,7 +2,10 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const config = require('./webpack.config.js');
 
-config.devtool = 'eval';
+config.devtool = 'cheap-module-eval-source-map';
+config.performance = {
+  hints: false
+};
 config.entry = {
   'sanji-ui': [
     'webpack/hot/dev-server',
@@ -12,7 +15,7 @@ config.entry = {
 };
 
 config.module.rules = [
-  {test: /\.js$/, loader: 'ng-annotate-loader', exclude: /(node_modules)/, enforce: 'post'},
+  {test: /\.js$/, use: 'ng-annotate-loader', exclude: /(node_modules)/, enforce: 'post'},
 ].concat(config.module.rules);
 
 config.plugins.push(
