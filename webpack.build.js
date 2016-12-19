@@ -34,7 +34,7 @@ config.externals = {
 };
 
 config.module.rules = [
-  {test: /\.js$/, loader: 'ng-annotate-loader', exclude: /(node_modules)/, enforce: 'post'},
+  {test: /\.js$/, use: 'ng-annotate-loader', exclude: /(node_modules)/, enforce: 'post'},
 ].concat(config.module.rules);
 
 config.plugins.push(
