@@ -3,7 +3,8 @@ import ngRedux from 'ng-redux';
 
 import ReduxHelperProvider from './redux-helper';
 
-const sjRedux = angular.module('sanji.redux', [ngRedux])
+const sjRedux = angular
+  .module('sanji.redux', [ngRedux])
   .provider('reduxHelper', ReduxHelperProvider)
   .config($provide => {
     'ngInject';
@@ -12,6 +13,5 @@ const sjRedux = angular.module('sanji.redux', [ngRedux])
       $delegate.asyncReducers = {};
       return $delegate;
     });
-  })
-  .name;
+  }).name;
 export { sjRedux };

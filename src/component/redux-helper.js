@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 const $inject = ['$ngReduxProvider'];
 class ReduxHelperProvider {
   constructor(...injects) {
-    ReduxHelperProvider.$inject.forEach((item, index) => this[item] = injects[index]);
+    ReduxHelperProvider.$inject.forEach((item, index) => (this[item] = injects[index]));
     this.config = {};
 
     this.configure = (cfg, enhancer) => {
